@@ -3,6 +3,7 @@
 //görebilmek için her defasında uygulamayı tekrar başlatmamız gerekir.
 import express from 'express';
 import bodyParser from 'body-parser';
+import AuthRouter from './routes';
 
 const app = express();
 
@@ -12,18 +13,14 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+AuthRouter(app);
+
 app.get('/', (req, res) => {
-    const sonuc = {
-        durum : true,
-        mesaj :"Tamamlandı"
-    }
-    res.send(sonuc);
+   
+    res.send("Learn English Rest API");
 });
 
-app.post('/', (req, res)=> {
-    
-    res.send(req.body.email)
-})
+
 
 app.listen(3300, () => console.log('server çalıştı'));
 
