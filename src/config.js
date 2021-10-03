@@ -1,4 +1,5 @@
 export default {
     version :"v1",
-    jwtSecret :"letsexplore"
+    jwtSecret :"letsexplore",
+    passSecret :"letsexplore"
 }
